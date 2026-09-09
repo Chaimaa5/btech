@@ -1,17 +1,24 @@
 import { useEffect } from "react";
 
-/** Adds `.is-visible` to every `.reveal` element as it scrolls into view. */
-export function useReveal() {
+/**
+ * Adds `.is-visible` to every `.reveal` element as it scrolls into view.
+ * Pass values that change the rendered tree (e.g. the route) so the observer
+ * picks up newly mounted nodes.
+ */
+export function useReveal(deps: unknown[] = []) {
   useEffect(() => {
+    if (typeof document === "undefined") return;
     const nodes = document.querySelectorAll<HTMLElement>(".reveal");
 
     if (
       typeof IntersectionObserver === "undefined" ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      nodes.forEach((n) => n.classList.add("is-visible"));
       return;
     }
+
+    // Only now hide the elements: without JS they must stay readable.
+    document.documentElement.classList.add("js-reveal");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,5 +34,6 @@ export function useReveal() {
 
     nodes.forEach((n) => observer.observe(n));
     return () => observer.disconnect();
-  }, []);
+    // Re-scans when the rendered route changes.
+  }, deps);
 }

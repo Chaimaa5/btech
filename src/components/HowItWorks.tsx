@@ -6,10 +6,10 @@ export default function HowItWorks() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Comment ça marche</span>
-          <h2>Opérationnel en moins de dix minutes</h2>
+          <h2>Trois temps, un seul système</h2>
           <p>
-            Aucune installation, aucune configuration complexe. Connectez vos
-            comptes et publiez dans la foulée.
+            Le même cycle chaque mois, pour chaque client — sans relance et sans
+            ressaisie.
           </p>
         </div>
 

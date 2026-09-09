@@ -1,34 +1,48 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Features from "./components/Features";
+import Problem from "./components/Problem";
 import HowItWorks from "./components/HowItWorks";
-import Testimonials from "./components/Testimonials";
+import Features from "./components/Features";
 import Showcase from "./components/Showcase";
+import Access from "./components/Access";
 import Faq from "./components/Faq";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
+import LegalPage from "./components/LegalPage";
 import { useReveal } from "./components/useReveal";
 import { useTheme } from "./components/useTheme";
+import { useRoute } from "./components/useRoute";
+import { legalPages } from "./data/legal";
 import "./styles/sections.css";
 
 export default function App() {
   const { theme, toggle } = useTheme();
-  useReveal();
+  const route = useRoute();
+  const page = legalPages.find((p) => p.slug === route);
+
+  useReveal([route]);
 
   return (
     <>
       <a className="skip-link" href="#main">
         Aller au contenu principal
       </a>
-      <Navbar theme={theme} onToggleTheme={toggle} />
+      <Navbar theme={theme} onToggleTheme={toggle} minimal={Boolean(page)} />
       <main id="main">
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <Showcase />
-        <Testimonials />
-        <Faq />
-        <CallToAction />
+        {page ? (
+          <LegalPage page={page} />
+        ) : (
+          <>
+            <Hero />
+            <Problem />
+            <HowItWorks />
+            <Features />
+            <Showcase />
+            <Access />
+            <Faq />
+            <CallToAction />
+          </>
+        )}
       </main>
       <Footer />
     </>

@@ -3,16 +3,21 @@ import Icon from "./Icon";
 import logo from "../assets/logo.png";
 
 const links = [
-  { href: "#fonctionnalites", label: "Fonctionnalités" },
+  { href: "#probleme", label: "Le problème" },
   { href: "#fonctionnement", label: "Comment ça marche" },
+  { href: "#fonctionnalites", label: "Fonctionnalités" },
   { href: "#apercu", label: "Aperçu" },
-  { href: "#temoignages", label: "Témoignages" },
   { href: "#faq", label: "FAQ" },
 ];
 
-type Props = { theme: "light" | "dark"; onToggleTheme: () => void };
+type Props = {
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
+  /** On a legal page the section links point nowhere, so they are hidden. */
+  minimal?: boolean;
+};
 
-export default function Navbar({ theme, onToggleTheme }: Props) {
+export default function Navbar({ theme, onToggleTheme, minimal = false }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -43,13 +48,15 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           <img src={logo} alt="BSocial" className="nav__logo" width={132} height={28} />
         </a>
 
-        <nav className="nav__links" aria-label="Navigation principale">
-          {links.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
-            </a>
-          ))}
-        </nav>
+        {!minimal && (
+          <nav className="nav__links" aria-label="Navigation principale">
+            {links.map((l) => (
+              <a key={l.href} href={l.href}>
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        )}
 
         <div className="nav__actions">
           <button
@@ -66,6 +73,7 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           <a href="#demo" className="btn btn--primary nav__cta">
             Demander une démo
           </a>
+          {!minimal && (
           <button
             type="button"
             className="nav__icon-btn nav__burger"
@@ -75,10 +83,11 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           >
             <Icon name={open ? "close" : "menu"} size={22} />
           </button>
+          )}
         </div>
       </div>
 
-      {open && (
+      {open && !minimal && (
         <div className="nav__mobile">
           <nav aria-label="Navigation mobile">
             {links.map((l) => (

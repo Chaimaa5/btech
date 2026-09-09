@@ -2,9 +2,9 @@ import { useState } from "react";
 import Icon from "./Icon";
 
 const points = [
-  "30 minutes en visio, à votre rythme",
-  "Un compte de démonstration avec vos cas d'usage",
-  "Une proposition chiffrée adaptée à votre volume",
+  "30 minutes en visio, sur un compte de démonstration réel",
+  "Nous partons de vos forfaits et de votre circuit de validation",
+  "Une proposition chiffrée selon votre nombre de clients",
 ];
 
 export default function CallToAction() {
@@ -22,9 +22,9 @@ export default function CallToAction() {
             <span className="eyebrow">Démonstration</span>
             <h2>Voyez BSocial sur vos propres données</h2>
             <p className="demo__lead">
-              Dites-nous comment vous travaillez aujourd'hui : nous vous
-              montrons la plateforme sur des cas concrets, sans argumentaire
-              commercial.
+              Dites-nous comment votre agence travaille aujourd'hui — combien
+              de comptes, quels forfaits, qui valide quoi. Nous vous montrons
+              les écrans qui correspondent, sans argumentaire commercial.
             </p>
 
             <ul className="demo__points">
@@ -37,7 +37,7 @@ export default function CallToAction() {
             </ul>
 
             <p className="demo__note">
-              Réponse sous 24 h ouvrées · Données hébergées et traitées au Maroc
+              Réponse sous 24 h ouvrées · Aucune carte bancaire demandée
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function CallToAction() {
                     name="company"
                     required
                     autoComplete="organization"
-                    placeholder="Nom de votre structure"
+                    placeholder="Nom de votre agence"
                     value={form.company}
                     onChange={set("company")}
                   />
@@ -112,7 +112,7 @@ export default function CallToAction() {
                     id="demo-message"
                     name="message"
                     rows={3}
-                    placeholder="Combien de clients gérez-vous ? Quels outils utilisez-vous aujourd'hui ?"
+                    placeholder="Combien de clients gérez-vous ? Comment se passent les validations aujourd'hui ?"
                     value={form.message}
                     onChange={set("message")}
                   />

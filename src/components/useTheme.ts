@@ -4,6 +4,9 @@ type Theme = "light" | "dark";
 const KEY = "bsocial-theme";
 
 function readInitial(): Theme {
+  // Rendered on the server during prerender: no window, no storage.
+  if (typeof window === "undefined") return "light";
+
   try {
     const stored = localStorage.getItem(KEY);
     if (stored === "light" || stored === "dark") return stored;

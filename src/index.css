@@ -260,14 +260,20 @@ p { text-wrap: pretty; }
 
 /* ---------- Reveal-on-scroll ---------- */
 
-.reveal {
+/* Content is visible by default so the prerendered HTML is readable without
+   JavaScript. The script adds `js-reveal` to <html>, which opts into the
+   scroll animation — never hiding text from a crawler that can't run it. */
+.reveal { opacity: 1; transform: none; }
+
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+
+.js-reveal .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
+  .js-reveal .reveal { opacity: 1; transform: none; }
 }

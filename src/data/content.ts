@@ -5,48 +5,71 @@ export type Feature = {
   icon: string;
 };
 
+/* Ordered by what actually differentiates BSocial: the client-facing
+   approval loop first, admin/reporting after. */
 export const features: Feature[] = [
   {
-    id: "scheduling",
-    title: "Planification intelligente",
+    id: "validation",
+    title: "Validation client",
     description:
-      "Programmez vos publications sur tous vos réseaux depuis un calendrier unique. BSocial recommande les créneaux où votre audience est la plus active.",
+      "Le client ouvre sa propre session, voit les publications préparées et approuve ou refuse. Un refus exige un commentaire écrit, transmis à l'agence par e-mail et rattaché au post. Plus d'accord perdu dans une conversation WhatsApp.",
+    icon: "check-circle",
+  },
+  {
+    id: "calendar",
+    title: "Calendrier éditorial",
+    description:
+      "Toutes les publications programmées, tous clients et tous canaux confondus — Instagram, Facebook, TikTok, YouTube, LinkedIn. Posts, reels et stories, avec le lien publié pour chaque canal.",
     icon: "calendar",
   },
   {
-    id: "inbox",
-    title: "Boîte de réception unifiée",
+    id: "shooting",
+    title: "Calendrier de tournage",
     description:
-      "Commentaires, messages privés et mentions arrivent au même endroit. Répondez à toute votre communauté sans changer d'onglet.",
-    icon: "inbox",
+      "Les séances de production avec lieu, durée, participants et statut. Invitation, confirmation, report, retard et annulation déclenchent automatiquement un e-mail aux personnes concernées.",
+    icon: "video",
   },
   {
-    id: "analytics",
-    title: "Analytics en temps réel",
+    id: "prestations",
+    title: "Suivi des prestations",
     description:
-      "Suivez portée, engagement et croissance avec des tableaux de bord clairs. Exportez des rapports prêts à présenter en un clic.",
+      "Par client et par mois : posts et reels prévus contre livrés, tournages réalisés, et ce qu'il reste à produire. La réponse chiffrée à « qu'avons-nous livré ce mois-ci ? ».",
+    icon: "clipboard",
+  },
+  {
+    id: "revenue",
+    title: "Suivi du chiffre d'affaires",
+    description:
+      "Objectif contre réalisé par client, au mois et au trimestre, avec l'écart, le pourcentage atteint et un statut automatique : dépassement, dans les clous, en retard ou critique.",
+    icon: "trending",
+  },
+  {
+    id: "insights",
+    title: "Statistiques Meta en direct",
+    description:
+      "Vos vrais comptes Instagram et Facebook via la Graph API : abonnés, portée, vues, visites de profil, clics sortants, engagement, meilleures publications et démographie. Rien n'est saisi à la main.",
     icon: "chart",
   },
   {
-    id: "ai",
-    title: "Assistant IA de contenu",
+    id: "reports",
+    title: "Rapports PDF en un clic",
     description:
-      "Générez légendes, hashtags et variantes adaptées à chaque plateforme, dans le ton de votre marque.",
-    icon: "sparkles",
+      "Un rapport mensuel à vos couleurs, par client, qui réunit le contenu livré, les performances et le chiffre d'affaires. La journée que vous passiez à l'assembler à la main.",
+    icon: "document",
   },
   {
-    id: "team",
-    title: "Collaboration d'équipe",
+    id: "roles",
+    title: "Accès cloisonnés",
     description:
-      "Rôles, workflows de validation et commentaires internes pour publier à plusieurs sans erreur.",
+      "Chaque personne accède à ce qui la concerne : un annonceur à son seul compte, un chef de projet à ses clients, un producteur aux tournages sans voir la facturation.",
     icon: "users",
   },
   {
-    id: "listening",
-    title: "Veille & écoute sociale",
+    id: "audit",
+    title: "Journal d'audit",
     description:
-      "Surveillez votre marque, vos concurrents et vos mots-clés. Recevez une alerte dès qu'une conversation décolle.",
-    icon: "radar",
+      "Chaque création, modification, approbation, refus et publication est enregistrée. Un administrateur peut consulter la plateforme exactement comme la voit un client — et cette consultation est elle aussi tracée.",
+    icon: "shield",
   },
 ];
 
@@ -59,21 +82,69 @@ export type Step = {
 export const steps: Step[] = [
   {
     number: "01",
-    title: "Connectez vos comptes",
+    title: "L'agence prépare",
     description:
-      "Instagram, Facebook, LinkedIn, X, TikTok et YouTube se relient en quelques secondes via OAuth sécurisé.",
+      "Vous créez les publications du mois dans le calendrier éditorial, vous planifiez les tournages, vous fixez l'objectif de chiffre d'affaires par client. Le contenu passe en préparation, puis en relecture.",
   },
   {
     number: "02",
-    title: "Créez et planifiez",
+    title: "Le client valide",
     description:
-      "Composez une fois, adaptez automatiquement le format à chaque réseau, puis glissez-déposez dans le calendrier.",
+      "Il se connecte à son espace, parcourt ce qui l'attend et tranche : approuvé, ou refusé avec un commentaire obligatoire. Le retour arrive à l'agence par e-mail et reste attaché à la publication.",
   },
   {
     number: "03",
-    title: "Mesurez et optimisez",
+    title: "Les chiffres remontent seuls",
     description:
-      "Analysez ce qui fonctionne, dupliquez vos meilleurs posts et laissez BSocial affiner vos horaires de publication.",
+      "Une fois publié, BSocial récupère les performances réelles depuis l'API Meta et les rapproche des prestations prévues et du CA. Le rapport mensuel se génère en un clic.",
+  },
+];
+
+export type Problem = { title: string; description: string };
+
+export const problems: Problem[] = [
+  {
+    title: "Les validations se perdent",
+    description:
+      "Un accord donné dans une conversation WhatsApp, un refus par e-mail, une correction en commentaire vocal. Trois semaines plus tard, personne ne sait qui a validé quoi.",
+  },
+  {
+    title: "Personne ne sait ce qui a été livré",
+    description:
+      "Le forfait prévoit douze posts et deux tournages. À la fin du mois, ni l'agence ni le client ne peuvent le vérifier sans repartir dans un tableur.",
+  },
+  {
+    title: "Le reporting se fait à la main",
+    description:
+      "Une journée par mois et par client : exporter les statistiques, recopier les chiffres, mettre en forme. Un travail refait à l'identique tous les trente jours.",
+  },
+  {
+    title: "Le client demande où ça en est",
+    description:
+      "Chaque question de statut oblige quelqu'un à interrompre son travail pour aller chercher la réponse dans un outil que le client ne voit pas.",
+  },
+];
+
+export type Proof = { title: string; description: string; icon: string };
+
+export const proofs: Proof[] = [
+  {
+    title: "Chaque validation est datée et signée",
+    description:
+      "Qui a approuvé, quand, et sur quelle version. Le jour où un client conteste un visuel publié, la réponse tient en une capture d'écran au lieu d'une semaine de recherche dans les conversations.",
+    icon: "shield",
+  },
+  {
+    title: "Chaque client ne voit que son compte",
+    description:
+      "Les accès sont cloisonnés par client et par rôle. Vous ouvrez un espace à un annonceur sans jamais exposer les contenus, les budgets ou les résultats des autres comptes de l'agence.",
+    icon: "users",
+  },
+  {
+    title: "Vos équipes travaillent au bon niveau",
+    description:
+      "Un chef de projet ne gère que ses comptes, un producteur accède aux tournages sans voir la facturation, un annonceur valide sans rien pouvoir modifier. Personne ne se marche dessus.",
+    icon: "check-circle",
   },
 ];
 
@@ -90,9 +161,9 @@ export const screens: Screen[] = [
   {
     id: "overview",
     label: "Tableau de bord",
-    title: "Toute l'activité en un coup d'œil",
+    title: "Toute l'agence en un coup d'œil",
     description:
-      "Clients actifs, publications en attente de validation, chiffre d'affaires du mois et prochains tournages : l'essentiel de votre agence sur un seul écran.",
+      "Clients actifs, publications en attente de validation, chiffre d'affaires du mois et prochains tournages. Ce qui demande une décision aujourd'hui est visible immédiatement.",
     image: "/screens/overview.png",
     alt: "Tableau de bord BSocial : indicateurs clés, statistiques Meta, publications et tournages à venir.",
   },
@@ -101,82 +172,52 @@ export const screens: Screen[] = [
     label: "Calendrier éditorial",
     title: "Le planning de tous vos clients",
     description:
-      "Un calendrier mensuel où chaque publication porte la couleur de son statut — de la préparation à la mise en ligne. Vous repérez instantanément ce qui bloque.",
+      "Un mois, tous les comptes, chaque publication colorée selon son statut — de la préparation à la mise en ligne. Ce qui bloque se repère sans ouvrir un seul post.",
     image: "/screens/posts-calendar.png",
     alt: "Calendrier éditorial BSocial affichant les publications du mois par statut et par client.",
   },
   {
     id: "shooting",
     label: "Tournages",
-    title: "Vos séances photo et vidéo organisées",
+    title: "La production, planifiée et confirmée",
     description:
-      "Planifiez les shootings, assignez l'équipe, suivez les lieux et les durées. Les séances des trois prochains jours sont mises en avant automatiquement.",
+      "Lieux, horaires, durées et participants. Les séances des trois prochains jours sont signalées, et chaque changement déclenche un e-mail aux personnes concernées.",
     image: "/screens/shooting-calendar.png",
     alt: "Calendrier des tournages BSocial avec le détail d'une séance : client, horaire, lieu et participants.",
   },
   {
     id: "insights",
     label: "Statistiques Meta",
-    title: "Les vraies données de vos comptes",
+    title: "Les données réelles de vos comptes",
     description:
-      "Portée, impressions, engagement et démographie de l'audience, directement depuis l'API Meta. Exportable en PDF pour vos rapports clients.",
+      "Portée, impressions, engagement, démographie et meilleures publications, tirées directement de la Graph API Meta. Exportable en PDF pour le rapport client.",
     image: "/screens/meta-insights.jpg",
     alt: "Statistiques Meta dans BSocial : portée, engagement, démographie de l'audience et meilleures publications.",
   },
-];
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  initials: string;
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "Nous gérons 12 comptes clients depuis BSocial. Ce qui nous prenait deux jours par semaine se fait maintenant en une matinée.",
-    name: "Leïla Bennani",
-    role: "Directrice, Studio Mirage",
-    initials: "LB",
-  },
-  {
-    quote:
-      "Les rapports automatiques ont changé nos réunions clients. Tout est clair, chiffré et prêt à envoyer le lundi matin.",
-    name: "Thomas Régnier",
-    role: "Social Media Manager, Novaé",
-    initials: "TR",
-  },
-  {
-    quote:
-      "L'assistant IA écrit dans notre ton de marque. On garde le contrôle éditorial tout en publiant trois fois plus.",
-    name: "Sofia Marchetti",
-    role: "Responsable marketing, Kaora",
-    initials: "SM",
-  },
-];
-
-export type Stat = { value: string; label: string };
-
-export const stats: Stat[] = [
-  { value: "12k+", label: "Équipes actives" },
-  { value: "4,2M", label: "Posts publiés" },
-  { value: "38%", label: "Engagement moyen en hausse" },
-  { value: "99,9%", label: "Disponibilité de service" },
 ];
 
 export type Faq = { question: string; answer: string };
 
 export const faqs: Faq[] = [
   {
+    question: "En quoi est-ce différent d'un outil de programmation classique ?",
+    answer:
+      "Les outils de programmation publient. BSocial gère la relation entre l'agence et son client : la validation avec commentaire obligatoire, le suivi de ce qui a été promis et livré, le chiffre d'affaires par compte et le rapport mensuel. La publication n'est qu'une étape du cycle.",
+  },
+  {
+    question: "Le client doit-il installer quelque chose ?",
+    answer:
+      "Non. Il reçoit une invitation par e-mail, définit son mot de passe et accède à son espace depuis un navigateur. Il ne voit que ses propres contenus, jamais ceux des autres clients de l'agence.",
+  },
+  {
     question: "Quels réseaux sociaux sont pris en charge ?",
     answer:
-      "BSocial se connecte à Instagram, Facebook, LinkedIn, X, TikTok, YouTube et Pinterest. De nouvelles intégrations sont ajoutées chaque trimestre.",
+      "Le calendrier couvre Instagram, Facebook, TikTok, YouTube et LinkedIn, avec les formats post, reel et story. Les statistiques en direct proviennent aujourd'hui de la Graph API Meta, pour Instagram et Facebook.",
   },
   {
     question: "Comment se passe la démonstration ?",
     answer:
-      "Un échange de 30 minutes en visio, avec un compte de démonstration rempli de données réelles. Nous partons de votre organisation actuelle pour vous montrer les écrans qui vous concernent.",
+      "Un échange de 30 minutes en visio, sur un compte de démonstration rempli de données réelles. Nous partons de votre organisation actuelle — nombre de clients, forfaits, circuit de validation — pour vous montrer les écrans qui vous concernent.",
   },
   {
     question: "Combien coûte BSocial ?",
@@ -184,22 +225,16 @@ export const faqs: Faq[] = [
       "Le tarif dépend du nombre de clients gérés, d'utilisateurs et des modules activés. Nous établissons une proposition chiffrée après la démonstration, une fois votre besoin cadré.",
   },
   {
-    question: "Mes données sont-elles hébergées en Europe ?",
+    question: "Pouvons-nous reprendre notre historique ?",
     answer:
-      "Toutes les données sont hébergées dans l'Union européenne, chiffrées au repos et en transit, et notre traitement est conforme au RGPD.",
-  },
-  {
-    question: "Proposez-vous un accompagnement à la migration ?",
-    answer:
-      "Oui. Nous reprenons vos clients, vos plannings et votre historique depuis votre outil actuel, et nous formons votre équipe avant la mise en service.",
+      "Oui. Nous reprenons vos clients, vos plannings et votre historique depuis votre outil ou vos tableurs actuels, et nous formons votre équipe avant la mise en service.",
   },
 ];
 
 export const socialNetworks = [
   "Instagram",
   "Facebook",
-  "LinkedIn",
-  "X",
   "TikTok",
   "YouTube",
+  "LinkedIn",
 ];
