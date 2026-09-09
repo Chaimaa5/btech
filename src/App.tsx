@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
-import Pricing from "./components/Pricing";
+import Showcase from "./components/Showcase";
 import Faq from "./components/Faq";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
@@ -25,8 +25,8 @@ export default function App() {
         <Hero />
         <Features />
         <HowItWorks />
+        <Showcase />
         <Testimonials />
-        <Pricing />
         <Faq />
         <CallToAction />
       </main>

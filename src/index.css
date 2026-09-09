@@ -3,75 +3,77 @@
    ============================================================ */
 
 :root {
-  /* Brand — sampled from Logo.png */
-  --brand-50:  #fff9e6;
-  --brand-100: #fff0bf;
-  --brand-200: #ffe38c;
-  --brand-300: #ffd24d;
-  --brand-400: #fec100;
-  --brand-500: #efb300;
-  --brand-600: #d69e00;
-  --brand-700: #a87c00;
-  --brand-gradient: linear-gradient(135deg, #fec100, #efb300);
-  --accent-400: #ffd24d;
-  --accent-500: #d69e00;
+  /* Brand — Brando palette (#fddb06) reconciled with the BSocial logo gold */
+  --brand-50:  #fffbe0;
+  --brand-100: #fff5b8;
+  --brand-200: #ffed80;
+  --brand-300: #fee34d;
+  --brand-400: #fddb06;
+  --brand-500: #fddb06;
+  --brand-600: #eabd00;
+  --brand-700: #c39d00;
+  --brand-gradient: linear-gradient(135deg, #fddb06, #eabd00);
+  --accent-400: #fddb06;
+  --accent-500: #eabd00;
 
-  /* Neutrals */
-  --ink-900: #000000;
-  --ink-800: #101010;
-  --ink-700: #1c1c1c;
-  --ink-600: #2e2e2e;
-  --ink-400: #6e6e73;
-  --ink-300: #a1a1a6;
-  --ink-200: #d0d0d3;
-  --ink-100: #ebebee;
-  --ink-50:  #f7f7f5;
+  /* Neutrals — Brando ink */
+  --ink-900: #181818;
+  --ink-800: #202020;
+  --ink-700: #303030;
+  --ink-600: #444444;
+  --ink-400: #6f6f6f;
+  --ink-300: #9b9b9b;
+  --ink-200: #c4c4c4;
+  --ink-100: #e6e6e6;
+  --ink-50:  #f5f5f5;
   --white: #ffffff;
 
   /* Semantic */
   --bg: var(--white);
   --bg-soft: var(--ink-50);
   --surface: var(--white);
-  --border: rgba(0, 0, 0, 0.10);
-  --border-strong: rgba(0, 0, 0, 0.18);
+  --border: rgba(24, 24, 24, 0.13);
+  --border-strong: #181818;
   --text: var(--ink-900);
   --text-muted: var(--ink-400);
   --text-inverse: var(--white);
 
   /* Effects */
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 22px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
   --radius-full: 999px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.10);
-  --shadow-lg: 0 24px 60px -18px rgba(0, 0, 0, 0.20);
-  --ring: 0 0 0 3px rgba(239, 179, 0, 0.45);
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-lg: none;
+  --ring: 0 0 0 3px rgba(253, 219, 6, 0.6);
 
   /* Layout */
-  --container: 1140px;
-  --gutter: 24px;
-  --nav-h: 68px;
+  --container: 1320px;
+  --gutter: 32px;
+  --nav-h: 96px;
 
   /* Type */
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
+  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: var(--ink-900);
-  --bg-soft: var(--ink-800);
-  --surface: var(--ink-800);
-  --border: rgba(255, 255, 255, 0.10);
-  --border-strong: rgba(255, 255, 255, 0.20);
+  --bg: #101010;
+  --bg-soft: #181818;
+  --surface: #181818;
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.55);
   --text: #f5f5f7;
   --text-muted: var(--ink-300);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 24px 60px -18px rgba(0, 0, 0, 0.7);
+  --shadow-sm: none;
+  --shadow: none;
+  --shadow-lg: none;
   color-scheme: dark;
 }
 
@@ -94,7 +96,8 @@ body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -124,15 +127,17 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Typography ---------- */
 
 h1, h2, h3, h4 {
-  line-height: 1.15;
+  font-family: var(--font-display);
+  line-height: 1.06;
   letter-spacing: -0.02em;
-  font-weight: 700;
+  font-weight: 500;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.4rem, 1.4rem + 3.4vw, 4rem); letter-spacing: -0.035em; }
-h2 { font-size: clamp(1.9rem, 1.3rem + 2.1vw, 2.8rem); letter-spacing: -0.03em; }
-h3 { font-size: 1.2rem; }
+/* Brando's signature: enormous, light-weight display type. */
+h1 { font-size: clamp(2.9rem, 1.1rem + 6.4vw, 6.5rem); }
+h2 { font-size: clamp(2.1rem, 1.1rem + 3.4vw, 3.9rem); line-height: 1.1; }
+h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.25; }
 
 p { text-wrap: pretty; }
 
@@ -146,35 +151,37 @@ p { text-wrap: pretty; }
 }
 
 .section {
-  padding-block: clamp(72px, 9vw, 128px);
+  padding-block: clamp(88px, 11vw, 176px);
 }
 
 .section--soft { background: var(--bg-soft); }
 
+/* Brando left-aligns its section intros rather than centring them. */
 .section-head {
-  max-width: 640px;
-  margin-inline: auto;
-  text-align: center;
-  margin-bottom: clamp(40px, 5vw, 64px);
+  max-width: 900px;
+  margin-bottom: clamp(48px, 6vw, 88px);
 }
 
 .section-head p {
-  margin-top: 16px;
+  margin-top: 22px;
   color: var(--text-muted);
   font-size: 1.05rem;
+  max-width: 60ch;
 }
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
+  padding: 7px 17px;
+  border: 1px solid var(--text);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--brand-600);
-  margin-bottom: 14px;
+  color: var(--text);
+  margin-bottom: 26px;
 }
-
-:root[data-theme="dark"] .eyebrow { color: var(--brand-300); }
 
 .sr-only {
   position: absolute;
@@ -207,11 +214,12 @@ p { text-wrap: pretty; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 15px 30px;
   border: 1px solid transparent;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   cursor: pointer;
   white-space: nowrap;
   transition: transform 0.15s ease, box-shadow 0.2s ease,
@@ -221,35 +229,33 @@ p { text-wrap: pretty; }
 .btn:active { transform: translateY(1px); }
 
 .btn--primary {
-  background: var(--brand-gradient);
+  background: var(--brand-400);
   color: var(--ink-900);
-  box-shadow: 0 8px 22px -8px rgba(239, 179, 0, 0.75);
 }
-.btn--primary:hover {
-  box-shadow: 0 14px 32px -10px rgba(239, 179, 0, 0.9);
-  transform: translateY(-1px);
+.btn--primary:hover { background: var(--ink-900); color: var(--white); }
+:root[data-theme="dark"] .btn--primary:hover {
+  background: var(--white);
+  color: var(--ink-900);
 }
 
 .btn--dark {
   background: var(--ink-900);
   color: var(--white);
-  box-shadow: var(--shadow);
 }
-.btn--dark:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.btn--dark:hover { background: var(--brand-400); color: var(--ink-900); }
 :root[data-theme="dark"] .btn--dark {
   background: var(--white);
   color: var(--ink-900);
 }
 
 .btn--ghost {
-  background: var(--surface);
+  background: transparent;
   color: var(--text);
-  border-color: var(--border-strong);
+  border-color: var(--text);
 }
-.btn--ghost:hover { border-color: var(--brand-400); color: var(--brand-600); }
-:root[data-theme="dark"] .btn--ghost:hover { color: var(--brand-300); }
+.btn--ghost:hover { background: var(--text); color: var(--bg); }
 
-.btn--lg { padding: 15px 30px; font-size: 1rem; }
+.btn--lg { padding: 18px 38px; font-size: 0.95rem; }
 .btn--block { width: 100%; }
 
 /* ---------- Reveal-on-scroll ---------- */

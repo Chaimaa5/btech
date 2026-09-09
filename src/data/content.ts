@@ -77,61 +77,51 @@ export const steps: Step[] = [
   },
 ];
 
-export type Plan = {
-  name: string;
-  priceMonthly: number;
-  priceYearly: number;
-  tagline: string;
-  features: string[];
-  featured?: boolean;
-  cta: string;
+export type Screen = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
 };
 
-export const plans: Plan[] = [
+export const screens: Screen[] = [
   {
-    name: "Starter",
-    priceMonthly: 19,
-    priceYearly: 15,
-    tagline: "Pour les créateurs et indépendants qui démarrent.",
-    cta: "Commencer gratuitement",
-    features: [
-      "3 comptes sociaux",
-      "30 publications programmées",
-      "Analytics de base",
-      "1 utilisateur",
-      "Support par e-mail",
-    ],
+    id: "overview",
+    label: "Tableau de bord",
+    title: "Toute l'activité en un coup d'œil",
+    description:
+      "Clients actifs, publications en attente de validation, chiffre d'affaires du mois et prochains tournages : l'essentiel de votre agence sur un seul écran.",
+    image: "/screens/overview.png",
+    alt: "Tableau de bord BSocial : indicateurs clés, statistiques Meta, publications et tournages à venir.",
   },
   {
-    name: "Pro",
-    priceMonthly: 49,
-    priceYearly: 39,
-    tagline: "Pour les PME et agences en croissance.",
-    cta: "Essai 14 jours offert",
-    featured: true,
-    features: [
-      "15 comptes sociaux",
-      "Publications illimitées",
-      "Analytics avancés + rapports",
-      "5 utilisateurs & validations",
-      "Assistant IA de contenu",
-      "Boîte de réception unifiée",
-    ],
+    id: "calendar",
+    label: "Calendrier éditorial",
+    title: "Le planning de tous vos clients",
+    description:
+      "Un calendrier mensuel où chaque publication porte la couleur de son statut — de la préparation à la mise en ligne. Vous repérez instantanément ce qui bloque.",
+    image: "/screens/posts-calendar.png",
+    alt: "Calendrier éditorial BSocial affichant les publications du mois par statut et par client.",
   },
   {
-    name: "Business",
-    priceMonthly: 129,
-    priceYearly: 99,
-    tagline: "Pour les équipes marketing structurées.",
-    cta: "Parler à un expert",
-    features: [
-      "Comptes sociaux illimités",
-      "Utilisateurs illimités",
-      "Veille & écoute sociale",
-      "API et intégrations sur mesure",
-      "SSO & journal d'audit",
-      "Accompagnement dédié",
-    ],
+    id: "shooting",
+    label: "Tournages",
+    title: "Vos séances photo et vidéo organisées",
+    description:
+      "Planifiez les shootings, assignez l'équipe, suivez les lieux et les durées. Les séances des trois prochains jours sont mises en avant automatiquement.",
+    image: "/screens/shooting-calendar.png",
+    alt: "Calendrier des tournages BSocial avec le détail d'une séance : client, horaire, lieu et participants.",
+  },
+  {
+    id: "insights",
+    label: "Statistiques Meta",
+    title: "Les vraies données de vos comptes",
+    description:
+      "Portée, impressions, engagement et démographie de l'audience, directement depuis l'API Meta. Exportable en PDF pour vos rapports clients.",
+    image: "/screens/meta-insights.jpg",
+    alt: "Statistiques Meta dans BSocial : portée, engagement, démographie de l'audience et meilleures publications.",
   },
 ];
 
@@ -184,14 +174,14 @@ export const faqs: Faq[] = [
       "BSocial se connecte à Instagram, Facebook, LinkedIn, X, TikTok, YouTube et Pinterest. De nouvelles intégrations sont ajoutées chaque trimestre.",
   },
   {
-    question: "Ai-je besoin d'une carte bancaire pour l'essai ?",
+    question: "Comment se passe la démonstration ?",
     answer:
-      "Non. L'essai de 14 jours sur le plan Pro est accessible sans carte bancaire, et sans engagement à l'issue de la période.",
+      "Un échange de 30 minutes en visio, avec un compte de démonstration rempli de données réelles. Nous partons de votre organisation actuelle pour vous montrer les écrans qui vous concernent.",
   },
   {
-    question: "Puis-je changer de formule à tout moment ?",
+    question: "Combien coûte BSocial ?",
     answer:
-      "Oui. Vous pouvez passer d'une formule à l'autre depuis votre espace de facturation, la différence est calculée au prorata.",
+      "Le tarif dépend du nombre de clients gérés, d'utilisateurs et des modules activés. Nous établissons une proposition chiffrée après la démonstration, une fois votre besoin cadré.",
   },
   {
     question: "Mes données sont-elles hébergées en Europe ?",
@@ -201,7 +191,7 @@ export const faqs: Faq[] = [
   {
     question: "Proposez-vous un accompagnement à la migration ?",
     answer:
-      "Les formules Business incluent une migration assistée depuis votre outil actuel ainsi qu'une session de formation pour votre équipe.",
+      "Oui. Nous reprenons vos clients, vos plannings et votre historique depuis votre outil actuel, et nous formons votre équipe avant la mise en service.",
   },
 ];
 

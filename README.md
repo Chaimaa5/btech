@@ -43,15 +43,32 @@ composants pour les mettre à jour.
 
 ## Charte graphique
 
-Les couleurs sont extraites directement du logo :
+Direction artistique inspirée de [brando.ma](https://www.brando.ma) :
+typographie éditoriale surdimensionnée, aplats sans ombres, filets fins,
+et le jaune employé comme accent franc.
 
 | Rôle | Valeur |
 | --- | --- |
-| Or (accent, dégradé) | `#fec100` → `#efb300` |
-| Encre (texte, fonds sombres) | `#000000` |
+| Jaune (accent, aplats) | `#fddb06` |
+| Encre (texte, footer) | `#181818` |
 
-Elles sont déclarées comme variables CSS dans `src/index.css` (`--brand-*`,
-`--ink-*`). Changer ces valeurs suffit à re-décliner tout le site.
+| Usage | Police |
+| --- | --- |
+| Titres, chiffres, boutons | Plus Jakarta Sans (graisse 500) |
+| Texte courant | DM Sans (16 px) |
+
+Principes repris de la référence :
+
+- titres très grands en graisse légère, interlettrage `-0.02em` ;
+- sections séparées par des filets, pas de cartes ombrées ;
+- libellés de section en pastilles contournées, en majuscules ;
+- boutons rectangulaires (rayon 6 px), jaune plein ou contour encre ;
+- blocs à fort contraste (offre mise en avant, bloc CTA, footer) ;
+- respiration verticale généreuse entre les sections.
+
+Les valeurs sont déclarées comme variables CSS dans `src/index.css`
+(`--brand-*`, `--ink-*`, `--font-display`). Changer ces valeurs suffit à
+re-décliner tout le site.
 
 ## Thème sombre
 

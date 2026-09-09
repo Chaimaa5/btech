@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 const columns = [
   {
     title: "Produit",
-    links: ["Fonctionnalités", "Tarifs", "Intégrations", "Nouveautés", "Feuille de route"],
+    links: ["Fonctionnalités", "Aperçu", "Intégrations", "Nouveautés", "Feuille de route"],
   },
   {
     title: "Ressources",

@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 const links = [
   { href: "#fonctionnalites", label: "Fonctionnalités" },
   { href: "#fonctionnement", label: "Comment ça marche" },
-  { href: "#tarifs", label: "Tarifs" },
+  { href: "#apercu", label: "Aperçu" },
   { href: "#temoignages", label: "Témoignages" },
   { href: "#faq", label: "FAQ" },
 ];
@@ -60,11 +60,11 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
           >
             <Icon name={theme === "dark" ? "sun" : "moon"} size={19} />
           </button>
-          <a href="#contact" className="nav__signin">
+          <a href="#demo" className="nav__signin">
             Connexion
           </a>
-          <a href="#contact" className="btn btn--primary nav__cta">
-            Essai gratuit
+          <a href="#demo" className="btn btn--primary nav__cta">
+            Demander une démo
           </a>
           <button
             type="button"
@@ -88,11 +88,11 @@ export default function Navbar({ theme, onToggleTheme }: Props) {
             ))}
           </nav>
           <a
-            href="#contact"
+            href="#demo"
             className="btn btn--primary btn--block"
             onClick={() => setOpen(false)}
           >
-            Essai gratuit
+            Demander une démo
           </a>
         </div>
       )}

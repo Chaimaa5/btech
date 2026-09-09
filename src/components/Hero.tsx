@@ -17,26 +17,30 @@ export default function Hero() {
             <span className="hero__highlight"> pilotés d'un seul endroit</span>
           </h1>
 
-          <p className="hero__lead">
-            BSocial réunit la planification, la publication, les conversations et
-            les statistiques de toutes vos plateformes dans une interface unique.
-            Passez moins de temps à jongler entre les onglets, plus de temps à
-            créer.
-          </p>
+          <div className="hero__band">
+            <p className="hero__lead">
+              BSocial réunit la planification, la publication, les conversations
+              et les statistiques de toutes vos plateformes dans une interface
+              unique. Passez moins de temps à jongler entre les onglets, plus de
+              temps à créer.
+            </p>
 
-          <div className="hero__actions">
-            <a href="#contact" className="btn btn--primary btn--lg">
-              Démarrer l'essai gratuit
-              <Icon name="arrow" size={18} />
-            </a>
-            <a href="#fonctionnalites" className="btn btn--ghost btn--lg">
-              Découvrir les fonctionnalités
-            </a>
+            <div>
+              <div className="hero__actions">
+                <a href="#demo" className="btn btn--primary btn--lg">
+                  Demander une démonstration
+                  <Icon name="arrow" size={18} />
+                </a>
+                <a href="#apercu" className="btn btn--ghost btn--lg">
+                  Voir la plateforme
+                </a>
+              </div>
+
+              <p className="hero__note">
+Démonstration personnalisée · Sans engagement · Réponse sous 24 h
+              </p>
+            </div>
           </div>
-
-          <p className="hero__note">
-            14 jours d'essai · Sans carte bancaire · Annulable à tout moment
-          </p>
 
           <ul className="hero__stats">
             {stats.map((s) => (
@@ -52,6 +56,18 @@ export default function Hero() {
           <Dashboard />
         </div>
       </div>
+
+      <a className="hero__scroll" href="#fonctionnalites">
+        <span>Faire défiler</span>
+        <svg width="26" height="46" viewBox="0 0 26 46" fill="none" aria-hidden="true">
+          <path
+            d="M13 2v40M4 33l9 9 9-9"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="square"
+          />
+        </svg>
+      </a>
 
       <div className="hero__marquee">
         <p>Compatible avec vos plateformes</p>
