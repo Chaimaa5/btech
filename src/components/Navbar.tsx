@@ -3,10 +3,10 @@ import Icon from "./Icon";
 import logo from "../assets/logo.png";
 
 const links = [
-  { href: "#probleme", label: "Le problème" },
+  { href: "#apercu", label: "La plateforme" },
+  { href: "#probleme", label: "Pourquoi" },
   { href: "#fonctionnement", label: "Comment ça marche" },
   { href: "#fonctionnalites", label: "Fonctionnalités" },
-  { href: "#apercu", label: "Aperçu" },
   { href: "#faq", label: "FAQ" },
 ];
 

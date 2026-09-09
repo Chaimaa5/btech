@@ -1,4 +1,4 @@
-import { problems } from "../data/content";
+import { problems, outcomes } from "../data/content";
 
 export default function Problem() {
   return (
@@ -6,11 +6,11 @@ export default function Problem() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Le problème</span>
-          <h2>La production tourne. Le suivi, lui, tient dans un tableur.</h2>
+          <h2>Ce qui vous coûte cher n'est pas la création</h2>
           <p>
             Une agence qui gère quinze comptes produit des centaines de
-            publications par mois. Ce n'est pas la création qui coince, c'est
-            tout ce qui l'entoure.
+            publications par mois. La création tourne. C'est tout ce qui
+            l'entoure qui déborde — et qui se paie en heures non facturables.
           </p>
         </div>
 
@@ -33,6 +33,17 @@ export default function Problem() {
           livrables et résultats au même endroit, avec un historique
           consultable.
         </p>
+
+        <ul className="outcomes reveal">
+          {outcomes.map((o) => (
+            <li key={o.label}>
+              <p className="outcomes__stat">
+                {o.stat} <span>{o.label}</span>
+              </p>
+              <p className="outcomes__detail">{o.detail}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

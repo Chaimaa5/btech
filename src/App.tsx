@@ -1,14 +1,14 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Showcase from "./components/Showcase";
 import Problem from "./components/Problem";
 import HowItWorks from "./components/HowItWorks";
 import Features from "./components/Features";
-import Showcase from "./components/Showcase";
-import Access from "./components/Access";
 import Faq from "./components/Faq";
 import CallToAction from "./components/CallToAction";
 import Footer from "./components/Footer";
 import LegalPage from "./components/LegalPage";
+import Contact from "./components/Contact";
 import { useReveal } from "./components/useReveal";
 import { useTheme } from "./components/useTheme";
 import { useRoute } from "./components/useRoute";
@@ -17,28 +17,32 @@ import "./styles/sections.css";
 
 export default function App() {
   const { theme, toggle } = useTheme();
-  const route = useRoute();
-  const page = legalPages.find((p) => p.slug === route);
+  const { path, query } = useRoute();
 
-  useReveal([route]);
+  const legal = legalPages.find((p) => p.slug === path);
+  const isContact = path === "contact";
+  const isPage = Boolean(legal) || isContact;
+
+  useReveal([path]);
 
   return (
     <>
       <a className="skip-link" href="#main">
         Aller au contenu principal
       </a>
-      <Navbar theme={theme} onToggleTheme={toggle} minimal={Boolean(page)} />
+      <Navbar theme={theme} onToggleTheme={toggle} minimal={isPage} />
       <main id="main">
-        {page ? (
-          <LegalPage page={page} />
+        {isContact ? (
+          <Contact initialSubject={query.get("sujet") ?? undefined} />
+        ) : legal ? (
+          <LegalPage page={legal} />
         ) : (
           <>
             <Hero />
+            <Showcase />
             <Problem />
             <HowItWorks />
             <Features />
-            <Showcase />
-            <Access />
             <Faq />
             <CallToAction />
           </>

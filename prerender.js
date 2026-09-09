@@ -36,6 +36,10 @@ const schemas = [
     description:
       "Logiciel de gestion pour agences social media : validation des publications par le client, calendrier éditorial et tournages, suivi des prestations et du chiffre d'affaires, statistiques Meta et rapports clients.",
     inLanguage: "fr",
+    audience: {
+      "@type": "BusinessAudience",
+      name: "Agences de communication et social media",
+    },
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
@@ -60,12 +64,29 @@ const schemas = [
     name: "BSocial",
     url: SITE,
     logo: `${SITE}/logo.png`,
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      email: "contact@bsocial.ma",
-      availableLanguage: ["fr"],
-    },
+    description:
+      "Éditeur de BSocial, logiciel de gestion pour agences social media.",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "contact@bsocial.ma",
+        availableLanguage: ["fr"],
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "technical support",
+        email: "contact@bsocial.ma",
+        availableLanguage: ["fr"],
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "BSocial",
+    url: SITE,
+    inLanguage: "fr",
   },
 ];
 

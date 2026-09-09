@@ -7,10 +7,10 @@ export default function Features() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Fonctionnalités</span>
-          <h2>Ce que la plateforme fait déjà</h2>
+          <h2>Tout ce que votre agence gère, dans un seul outil</h2>
           <p>
-            Chaque brique ci-dessous est en production aujourd'hui, pas sur une
-            feuille de route.
+Neuf modules, tous en production aujourd'hui — pas sur une feuille
+            de route. De la validation client au rapport mensuel.
           </p>
         </div>
 

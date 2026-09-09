@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 
-/** Hash routing: "#/confidentialite" is a page, "#section" an in-page anchor. */
-export function useRoute() {
-  const read = () => {
-    if (typeof window === "undefined") return "";
+export type Route = { path: string; query: URLSearchParams };
+
+/** Hash routing: "#/contact?sujet=support" is a page, "#section" an anchor. */
+export function useRoute(): Route {
+  const read = (): Route => {
+    if (typeof window === "undefined") {
+      return { path: "", query: new URLSearchParams() };
+    }
     const h = window.location.hash;
-    return h.startsWith("#/") ? h.slice(2) : "";
+    if (!h.startsWith("#/")) return { path: "", query: new URLSearchParams() };
+
+    const [path, qs = ""] = h.slice(2).split("?");
+    return { path, query: new URLSearchParams(qs) };
   };
 
-  const [route, setRoute] = useState(read);
+  const [route, setRoute] = useState<Route>(read);
 
   useEffect(() => {
     const onHash = () => setRoute(read());

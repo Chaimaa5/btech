@@ -61,14 +61,14 @@ export const features: Feature[] = [
     id: "roles",
     title: "Accès cloisonnés",
     description:
-      "Chaque personne accède à ce qui la concerne : un annonceur à son seul compte, un chef de projet à ses clients, un producteur aux tournages sans voir la facturation.",
+      "Chaque personne accède à ce qui la concerne : un annonceur à son seul compte, un chef de projet à ses clients, un producteur aux tournages sans voir la facturation. Vous ouvrez un espace client sans jamais exposer les autres comptes.",
     icon: "users",
   },
   {
     id: "audit",
-    title: "Journal d'audit",
+    title: "Preuve horodatée",
     description:
-      "Chaque création, modification, approbation, refus et publication est enregistrée. Un administrateur peut consulter la plateforme exactement comme la voit un client — et cette consultation est elle aussi tracée.",
+      "Qui a approuvé, quand, sur quelle version. Le jour où un client conteste un visuel publié, la réponse tient en une capture d'écran au lieu d'une semaine de recherche dans les conversations.",
     icon: "shield",
   },
 ];
@@ -125,26 +125,28 @@ export const problems: Problem[] = [
   },
 ];
 
-export type Proof = { title: string; description: string; icon: string };
+export type Outcome = { stat: string; label: string; detail: string };
 
-export const proofs: Proof[] = [
+/* Deliberately capability statements, not performance claims: nothing here
+   asserts a result we cannot back up. */
+export const outcomes: Outcome[] = [
   {
-    title: "Chaque validation est datée et signée",
-    description:
-      "Qui a approuvé, quand, et sur quelle version. Le jour où un client conteste un visuel publié, la réponse tient en une capture d'écran au lieu d'une semaine de recherche dans les conversations.",
-    icon: "shield",
+    stat: "1 espace",
+    label: "par client",
+    detail:
+      "L'annonceur valide, commente et consulte ses résultats sans passer par vous.",
   },
   {
-    title: "Chaque client ne voit que son compte",
-    description:
-      "Les accès sont cloisonnés par client et par rôle. Vous ouvrez un espace à un annonceur sans jamais exposer les contenus, les budgets ou les résultats des autres comptes de l'agence.",
-    icon: "users",
+    stat: "0 ressaisie",
+    label: "pour le reporting",
+    detail:
+      "Les statistiques Meta et les prestations livrées alimentent le rapport directement.",
   },
   {
-    title: "Vos équipes travaillent au bon niveau",
-    description:
-      "Un chef de projet ne gère que ses comptes, un producteur accède aux tournages sans voir la facturation, un annonceur valide sans rien pouvoir modifier. Personne ne se marche dessus.",
-    icon: "check-circle",
+    stat: "100 %",
+    label: "des décisions tracées",
+    detail:
+      "Chaque validation, refus et publication est horodatée et attribuée à son auteur.",
   },
 ];
 

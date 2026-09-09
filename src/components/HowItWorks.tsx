@@ -6,10 +6,10 @@ export default function HowItWorks() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Comment ça marche</span>
-          <h2>Trois temps, un seul système</h2>
+          <h2>Le mois se déroule tout seul</h2>
           <p>
-            Le même cycle chaque mois, pour chaque client — sans relance et sans
-            ressaisie.
+            Trois temps, le même pour chaque client. Vous préparez une fois, le
+            reste s'enchaîne sans relance et sans ressaisie.
           </p>
         </div>
 

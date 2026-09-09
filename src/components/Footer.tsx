@@ -7,11 +7,10 @@ const columns = [
   {
     title: "Produit",
     links: [
-      { label: "Le problème", href: "#probleme" },
+      { label: "Aperçu des écrans", href: "#apercu" },
+      { label: "Pourquoi BSocial", href: "#probleme" },
       { label: "Comment ça marche", href: "#fonctionnement" },
       { label: "Fonctionnalités", href: "#fonctionnalites" },
-      { label: "Aperçu des écrans", href: "#apercu" },
-      { label: "Accès & traçabilité", href: "#acces" },
     ],
   },
   {
@@ -19,19 +18,15 @@ const columns = [
     links: [
       { label: "Questions fréquentes", href: "#faq" },
       { label: "Demander une démonstration", href: "#demo" },
-      { label: "Support", href: `mailto:${CONTACT_EMAIL}?subject=Support%20BSocial` },
-      {
-        label: "Signaler un problème de sécurité",
-        href: `mailto:${CONTACT_EMAIL}?subject=S%C3%A9curit%C3%A9%20BSocial`,
-      },
+      { label: "Support", href: "#/contact?sujet=support" },
+      { label: "Signaler un problème de sécurité", href: "#/contact?sujet=securite" },
     ],
   },
   {
     title: "Entreprise",
     links: [
-      { label: "Contact", href: `mailto:${CONTACT_EMAIL}` },
+      { label: "Contact", href: "#/contact" },
       { label: "Devenir client", href: "#demo" },
-      { label: "Se connecter", href: "#demo" },
     ],
   },
   {

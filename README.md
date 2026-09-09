@@ -22,16 +22,16 @@ npm run lint     # oxlint
 src/
   components/       Sections de la page (une par fichier)
     Navbar.tsx        En-tête fixe, menu mobile, bascule de thème
-    Hero.tsx          Accroche + maquette de l'écran de validation client
-    Problem.tsx       Le problème opérationnel, puis le basculement
+    Hero.tsx          Accroche, proposition de valeur et CTA
+    Showcase.tsx      Captures réelles de la plateforme, en onglets
+    Problem.tsx       Le problème, le basculement, la bande de résultats
     HowItWorks.tsx    Les 3 temps du cycle mensuel
     Features.tsx      Les 9 fonctionnalités réellement en production
-    Showcase.tsx      Captures réelles de la plateforme, en onglets
-    Access.tsx        Traçabilité : preuve des validations et des livrables
     Faq.tsx           Accordéon accessible
     CallToAction.tsx  Formulaire de demande de démonstration
     Footer.tsx        Pied de page (tous les liens résolvent)
     LegalPage.tsx     Rendu des pages légales
+    Contact.tsx       Formulaire de ticket (support, sécurité, commercial)
     Icon.tsx          Icônes SVG inline (pas de dépendance)
     useTheme.ts       Thème clair/sombre, persisté en localStorage
     useReveal.ts      Animations d'apparition au scroll
@@ -56,9 +56,11 @@ pour les mettre à jour.
    et le responsable des données. Ils s'affichent **surlignés en jaune** sur les
    pages légales tant qu'ils ne sont pas remplis. `CONTACT_EMAIL` doit également
    pointer vers une adresse réellement relevée.
-2. **Formulaire de démonstration.** `CallToAction.tsx` affiche une confirmation
-   côté navigateur mais **n'envoie rien**. Il faut le brancher à un back-end ou à
-   un service de formulaire, sinon les demandes sont perdues.
+2. **Formulaires.** `CallToAction.tsx` (démonstration) et `Contact.tsx`
+   (ticket) affichent une confirmation côté navigateur mais **n'envoient rien**.
+   La référence de ticket affichée est générée localement : elle devra venir du
+   back-end une fois les formulaires branchés. Sans cela, les demandes sont
+   perdues.
 
 ## SEO & prérendu
 
@@ -96,9 +98,10 @@ générer un fichier HTML par page dans le build.
 
 ## Pages légales
 
-Trois pages sont servies par un routage par hash, sans dépendance :
-`#/confidentialite`, `#/conditions` et `#/rgpd`. Une route inconnue retombe sur
-la page d'accueil. Sur ces pages, l'en-tête masque les liens de section, qui ne
+Quatre pages sont servies par un routage par hash, sans dépendance :
+`#/confidentialite`, `#/conditions`, `#/rgpd` et `#/contact`. Cette dernière
+accepte un paramètre : `#/contact?sujet=support` ou `?sujet=securite`
+présélectionne l'objet du ticket. Une route inconnue retombe sur l'accueil. Sur ces pages, l'en-tête masque les liens de section, qui ne
 mèneraient nulle part.
 
 ## Captures de la plateforme

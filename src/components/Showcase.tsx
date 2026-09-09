@@ -10,10 +10,10 @@ export default function Showcase() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Aperçu</span>
-          <h2>La plateforme, écran par écran</h2>
+          <h2>Voici la plateforme, pas une illustration</h2>
           <p>
-            Voici BSocial tel que votre équipe l'utilise au quotidien. Aucune
-            image d'illustration : ce sont les écrans réels de la plateforme.
+            Ce sont des captures réelles d'un compte en production, avec de
+            vraies données Meta. Regardez avant de nous croire sur parole.
           </p>
         </div>
 
