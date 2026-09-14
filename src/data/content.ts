@@ -167,7 +167,7 @@ export const screens: Screen[] = [
     description:
       "Clients actifs, publications en attente de validation, chiffre d'affaires du mois et prochains tournages. Ce qui demande une décision aujourd'hui est visible immédiatement.",
     image: "/screens/overview.png",
-    alt: "Tableau de bord BSocial : indicateurs clés, statistiques Meta, publications et tournages à venir.",
+    alt: "Tableau de bord BSocial : indicateurs clés, publications par statut, types d'abonnement, publications et tournages à venir.",
   },
   {
     id: "calendar",

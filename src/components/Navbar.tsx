@@ -67,9 +67,7 @@ export default function Navbar({ theme, onToggleTheme, minimal = false }: Props)
           >
             <Icon name={theme === "dark" ? "sun" : "moon"} size={19} />
           </button>
-          <a href="#demo" className="nav__signin">
-            Connexion
-          </a>
+       
           <a href="#demo" className="btn btn--primary nav__cta">
             Demander une démo
           </a>
